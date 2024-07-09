@@ -1,0 +1,139 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  #carouselExampleControls {
+    width: 100%; 
+    height: 300px; 
+  }
+  
+  .carousel-inner {
+    width: 100%;
+    height: 100%; 
+  }
+  
+  .carousel-item {
+    width: 100%;
+    height: 100%; 
+  }
+  #card1 {
+    width: 280px;
+    height: 320px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+  }
+  #card2 {
+    width: 280px;
+    height: 320px;
+    margin-left: 22px;
+  }
+  #card3 {
+    width: 280px;
+    height: 320px;
+    margin-left: 22px;
+  }
+  #card31 {
+    width: 300px;
+    height: 120px;
+    margin-left: 22px;
+  }
+  #card32 {
+    width: 300px;
+    height: 170px;
+    margin-left: 22px;
+    margin-top: 20px;
+  }
+  #card4 {
+    width: 580px;
+    height: 320px;
+    margin-left: 30px;
+  }
+  #card5 {
+    width: 280px;
+    height: 320px;
+    margin-left: 20px;
+  }
+  #card6 {
+    width: 300px;
+    height: 320px;
+    margin-left: 25px;
+  }
+  #card7 {
+    margin-top: 20px;
+    width: 1200px;
+    height: 280px;
+    margin-left: 18px;
+  }
+  #card8 {
+    margin-top: 20px;
+    width: 1200px;
+    height: 280px;
+    margin-left: 18px;
+  }
+  #card9 {
+    margin-top: 20px;
+    width: 1200px;
+    height: 280px;
+    margin-left: 18px;
+  }
+  #card10 {
+    width: 282px;
+    height: 320px;   
+    margin-left: 32px;
+    margin-top: 20px;
+  }
+  #card11 {
+    width: 282px;
+    height: 320px;
+    margin-left: 22px;
+    margin-top: 20px;
+  } #card12 {
+    width: 285px;
+    height: 320px;
+    margin-left: 22px;
+    margin-top: 20px;
+  }
+  #card13 {
+    width: 285px;
+    height: 320px;
+    margin-left: 22px;
+    margin-top: 20px;
+  }
+  #card14 {
+    margin-top: 20px;
+    width: 1200px;
+    height: 280px;
+    margin-left: 18px;
+  }
+  #card15 {
+    margin-top: 20px;
+    width: 1200px;
+    height: 280px;
+    margin-left: 18px;
+  }
+  #card16 {
+    width: 282px;
+    height: 320px;   
+    margin-left: 32px;
+    margin-top: 20px;
+  }
+  #card17 {
+    width: 282px;
+    height: 320px;
+    margin-left: 22px;
+    margin-top: 20px;
+  } #card18 {
+    width: 285px;
+    height: 320px;
+    margin-left: 22px;
+    margin-top: 20px;
+  }
+  #card19 {
+    width: 285px;
+    height: 320px;
+    margin-left: 22px;
+    margin-top: 20px;
+  }
+.mat-card-title
+{
+  background-color: white;
+}
