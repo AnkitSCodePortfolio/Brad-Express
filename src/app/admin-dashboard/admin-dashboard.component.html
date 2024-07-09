@@ -1,0 +1,62 @@
+<body>
+<div class="container"> 
+    <div class="col-md-12 mx-auto mt-4">
+          <table mat-table [dataSource]="Product"  class="mat-elevation-z8">        
+             <ng-container matColumnDef="Id">
+              <th mat-header-cell *matHeaderCellDef>ID </th>
+              <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="Name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef>Description </th>
+              <td mat-cell *matCellDef="let Product"> {{Product.description}} </td>
+              </ng-container>
+          
+              <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef>Price </th>
+              <td mat-cell *matCellDef="let Product"> {{Product.price}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="categoryId">
+              <th mat-header-cell *matHeaderCellDef>CategoryId </th>
+              <td mat-cell *matCellDef="let Product"> {{Product.categoryId}} </td>
+              </ng-container>
+                       
+              <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef>Quantity </th>
+              <td mat-cell *matCellDef="let Product"> {{Product.quantity}} </td>
+              </ng-container>
+              <ng-container matColumnDef="filePath">
+                <th mat-header-cell *matHeaderCellDef>Picture </th>
+                <td mat-cell *matCellDef="let product">
+                  <img [src]="product.filePath" alt="Product Image" width="120" height="120">
+                </td>
+              </ng-container>             
+           <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let Product">
+                <button mat-raised-button>
+                    <mat-icon color="warn">delete</mat-icon>
+                </button>
+                &nbsp;
+                <button mat-raised-button>
+                    <mat-icon color="primary">edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let product; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+  </div>
+ <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+  </mat-paginator>
+</body>

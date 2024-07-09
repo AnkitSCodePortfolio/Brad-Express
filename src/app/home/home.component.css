@@ -1,3 +1,7 @@
+body {
+  background-color: #f0f0f0;
+  margin-bottom:2800px;
+}
 .example-spacer {
     flex: 1 1 auto;
   }
@@ -45,7 +49,7 @@
   #card4 {
     width: 580px;
     height: 320px;
-    margin-left: 30px;
+    margin-left: 48px;
   }
   #card5 {
     width: 280px;
@@ -61,24 +65,24 @@
     margin-top: 20px;
     width: 1200px;
     height: 280px;
-    margin-left: 18px;
+    margin-left: 35px;
   }
   #card8 {
     margin-top: 20px;
     width: 1200px;
     height: 280px;
-    margin-left: 18px;
+    margin-left: 35px;
   }
   #card9 {
     margin-top: 20px;
     width: 1200px;
     height: 280px;
-    margin-left: 18px;
+    margin-left: 35px;
   }
   #card10 {
     width: 282px;
     height: 320px;   
-    margin-left: 32px;
+    margin-left: 48px;
     margin-top: 20px;
   }
   #card11 {
@@ -102,18 +106,18 @@
     margin-top: 20px;
     width: 1200px;
     height: 280px;
-    margin-left: 18px;
+    margin-left: 35px;
   }
   #card15 {
     margin-top: 20px;
     width: 1200px;
     height: 280px;
-    margin-left: 18px;
+    margin-left: 35px;
   }
   #card16 {
     width: 282px;
     height: 320px;   
-    margin-left: 32px;
+    margin-left: 48px;
     margin-top: 20px;
   }
   #card17 {
@@ -137,3 +141,4 @@
 {
   background-color: white;
 }
+

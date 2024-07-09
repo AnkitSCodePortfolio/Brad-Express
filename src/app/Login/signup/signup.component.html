@@ -1,0 +1,44 @@
+<body>
+    <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#" style="margin-top: 12px;margin-left: 570px;">
+        <img src="assets/Images/Icon.png" height="30" width="100px" alt="" loading="lazy"/>
+    </a>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title style="font-size: 30px; margin-left: 5px;">Sign in</mat-card-title>
+          </mat-card-header>         
+        <mat-card-title style="font-size: 15px; margin-left: 25px; margin-top: 10px;">Username</mat-card-title>
+        <mat-form-field class="example-form-field" style="width: 320px;margin-left: 30px;height: 70px;">
+            <input matInput type="text" [(ngModel)]="value">
+            @if (value) {
+              <button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+        </mat-form-field>
+        <mat-card-title style="font-size: 15px; margin-left: 25px;">Password</mat-card-title>
+        <mat-form-field class="example-form-field" style="width: 320px;margin-left: 30px;height: 70px;">
+            <input matInput type="text" [(ngModel)]="values">
+            @if (values) {
+              <button matSuffix mat-icon-button aria-label="Clear" (click)="values=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            }
+        </mat-form-field>
+            <button mat-raised-button color="warn" style="width: 150px; margin-left: 220px;">Login</button>
+            <div class="section-divider">
+                <span>New to Amazon?</span>
+                <div class="row">
+                  <button mat-fab matTooltip="Primary" color="" style="margin-left: 60px; background-color: transparent;">
+                    <img src="assets/Images/google.png" alt=""style="object-fit: cover;"/>
+                    </button>
+                    <button mat-fab matTooltip="Accent" color="" style="margin-left: 55px;background-color: transparent;">
+                      <img src="assets/Images/facebook.png" alt="" style="object-fit: cover;"/>
+                    </button>
+                    <button mat-fab matTooltip="Warn" color=""style="margin-left: 55px;background-color: transparent;">
+                      <img src="assets/Images/mail.png" alt="" style="object-fit: cover;"/>
+                    </button>
+                  </div>
+            </div>
+           
+      </mat-card>
+</body>
