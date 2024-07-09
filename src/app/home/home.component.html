@@ -1,30 +1,27 @@
-<body style="background-color: #E3E6E6;">
-    <div>
-      <mat-toolbar style="background-color: #232f3e;" >
-        <mat-icon style="font-size: 24px;margin-left: 2px;">menu</mat-icon>
-        <span style="margin-left: 10px; font-size:15px;"> All</span>
-        <span style="margin-left: 10px; font-size:15px;"> Today's Deals</span>
-        <span style="margin-left: 10px; font-size:15px;"> Amazon miniTV</span>
-        <span style="margin-left: 10px; font-size:15px;"> Sell</span>
-        <span style="margin-left: 10px; font-size:15px;"> Gift Cards</span>
-        <span style="margin-left: 10px; font-size:15px;"> Fresh</span>
-        <span style="margin-left: 10px; font-size:15px;"> Coupons</span>
-        <span style="margin-left: 10px; font-size:15px;"> Gift Ideas</span>
-        <span style="margin-left: 10px; font-size:15px;"> Amazon Pay</span>
-        <span style="margin-left: 10px; font-size:15px;"> Buy Again</span>
-        <span style="margin-left: 140px; font-size:15px;"> New Launches from Mobile, Electronics & more</span>
-      </mat-toolbar>
-    </div>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<body>
+  <div>
+    <mat-toolbar style="background-color: #232f3e;">
+      <button mat-button>
+        <mat-icon style="font-size: 24px;">menu</mat-icon>
+      </button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">All</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Today's Deals</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Amazon miniTV</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Sell</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Gift Cards</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Fresh</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Coupons</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Gift Ideas</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Amazon Pay</button>
+      <button style="margin-left: 10px; font-size:13px; background: none; border: none; color: white; cursor: pointer; padding: 1;">Buy Again</button>
+      <button style="margin-left: 140px; font-size:13px;background: none; border: none; color: white; cursor: pointer; padding: 1;">New Launches from Mobile, Electronics & more</button>
+    </mat-toolbar>
+  </div>
+  <div style="position: relative;">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height: 400px;">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="assets/Images/carousel1.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="assets/Images/carousel2.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="assets/Images/carousel3.jpg" alt="Third slide">
+        <div class="carousel-item" *ngFor="let url of filepath; let i = index" [class.active]="i === 0">
+          <img class="d-block w-100" [src]="url.filepath" alt="Slide {{ i + 1 }}">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -36,182 +33,515 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    <div  class="row">
-      <mat-card class="example-card" id="card1" style="background-color: white;">
+    <div class="row" style="position: absolute; top: 300px; left: 10px; right: 0; bottom: 0;">
+      <mat-card class="example-card" id="card1" style="background: white; ">
         <mat-card-header>
           <mat-card-title>Keep shopping for</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <mat-grid-list cols="2" rowHeight="2:1">
-            <mat-grid-tile *ngFor="let image of imageList">
-              <img src="{{image}}" alt="Image">
-            </mat-grid-tile>
-          </mat-grid-list>
-        </mat-card-content>
+          <div class="row" style="margin-top: 10px;">
+            <div *ngFor="let item of mobdata.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+              <div class="customdiv">
+                <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+                <br>
+                <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                  <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                  <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+              </div>              
+              <b style="font-size: 12px;">₹{{ item.price }}</b>
+              </div>
+            </div>
+          </div>         
+        </mat-card-content>       
       </mat-card>
-      <mat-card class="example-card" id="card2" style="background-color: white;">
-        <mat-card-header >
+      <mat-card class="example-card" id="card2" style="background: white;">
+        <mat-card-header>
           <mat-card-title>Pick up where you left off</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+          <div class="row" style="margin-top: 10px;">
+            <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+              <div class="customdiv">
+                <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+                <br>
+                <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                  <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                  <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+              </div>              
+              <b style="font-size: 12px;">₹{{ item.price }}</b>
+              </div>
+            </div>             
+          </div>
         </mat-card-content>
-      </mat-card>  
-      <mat-card class="example-card" id="card3" style="background-color: white;">
+      </mat-card>
+      <mat-card class="example-card" id="card3" style="background: white;">
         <mat-card-header>
           <mat-card-title>Deals inspired by your recent history</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+          <div class="row" style="margin-top: 10px;">
+            <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+              <div class="customdiv">
+                <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+                <br>
+                <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                  <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                  <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+              </div>              
+              <b style="font-size: 12px;">₹{{ item.price }}</b>
+              </div>
+            </div>             
+          </div>
         </mat-card-content>
-      </mat-card> 
+      </mat-card>
       <div class="column">
-        <mat-card class="example-card" id="card31" style="background-color: white;">
+        <mat-card class="example-card" id="card31" style="background: white;">
           <mat-card-header>
             <mat-card-title>Become an Amazon Seller</mat-card-title>
           </mat-card-header>
           <mat-card-content>
           </mat-card-content>
-        </mat-card> 
-        <mat-card class="example-card" id="card32" style="background-color: white;">
+        </mat-card>
+        <mat-card class="example-card" id="card32" style="background: white;">
           <mat-card-header>
             <mat-card-title>Test</mat-card-title>
           </mat-card-header>
           <mat-card-content>
           </mat-card-content>
-        </mat-card> 
-      </div> 
+        </mat-card>
+      </div>    
+   <div  class="row">
+    <mat-card class="example-card" id="card4" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>Prime Video: Recommended for you</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+         <ng-image-slider #nav [images]="imageObject" [infinite]="true" [autoSlide]="1"
+        [imageSize]="{width: '100%', height: 250}" slideImage="1" ></ng-image-slider>
+      </mat-card-content>
+    </mat-card> 
+    <mat-card class="example-card" id="card5" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>Deals for you in Electronics</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+            <div class="customdiv">
+              <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+              <br>
+              <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+              <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+            </div>              
+            <b style="font-size: 12px;">₹{{ item.price }}</b>
+            </div>
+          </div>                 
+        </div>
+      </mat-card-content>
+    </mat-card> 
+    <mat-card class="example-card" id="card6" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>4+ star deals for you</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row" style="margin-top: 10px;">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+            <div class="customdiv">
+              <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+              <br>
+              <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+              <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+            </div>              
+            <b style="font-size: 12px;">₹{{ item.price }}</b>
+            </div>
+          </div>                     
+        </div>
+      </mat-card-content>
+    </mat-card> 
+  </div> 
+  <mat-card class="example-card" id="card7" style="background-color: white;">
+    <mat-card-header>
+      <mat-card-title>Today’s Deals</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container text-center my-3">
+        <div id="recipeCarousel" class="carousel slide"  data-bs-interval="false">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" *ngFor="let item of appdata; let i = index" [class.active]="i === currentIndex">
+              <div class="row">
+                <div class="col-md-2" *ngFor="let card of appdata.slice(i, i+6); let j = index">
+                  <div class="card" style="margin-bottom: 10px;">
+                    <div class="card-img">
+                      <img src="{{ card.filePath }}" class="img-fluid" height="100px" width="100px" alt="{{ card.name }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev" (click)="prevSlide()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next" (click)="nextSlide()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-2" *ngFor="let card of appdata.slice(currentIndex, currentIndex + 6); let j = index">
+          <div class="custom-card-container">
+            <h5 class="card-title" style="margin: 0; font-size: 15px">{{ card.name }}</h5>
+            <p class="card-text" style="margin: 0; font-size: 15px">Price: {{ card.price }}</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div  class="row">
-      <mat-card class="example-card" id="card4" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>Prime Video: Recommended for you</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card> 
-      <mat-card class="example-card" id="card5" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>Deals for you in Electronics</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card> 
-      <mat-card class="example-card" id="card6" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>4+ star deals for you</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card> 
-    </div> 
-     <mat-card class="example-card" id="card7" style="background-color: white;">
-      <mat-card-header>
-        <mat-card-title>Today’s Deals</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card> 
-    <!-- <mat-card class="example-card" id="card7" style="background-color: white;">
-      <mat-card-header>
-        <mat-card-title>Today’s Deals</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-carousel>
-          <mat-carousel-slide>
-            <img src="assets/Images/carousel1.jpg" alt="Item 1">
-          </mat-carousel-slide>
-          <mat-carousel-slide>
-            <img src="assets/Images/carousel2.jpg" alt="Item 2">
-          </mat-carousel-slide>
-        </mat-carousel>
-      </mat-card-content>
-    </mat-card> -->
-    
-    <mat-card class="example-card" id="card8" style="background-color: white;">
-      <mat-card-header>
-        <mat-card-title>Up to 60% off | Deck up your home this festive season | Amazon Brands & more</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card> 
-    <mat-card class="example-card" id="card9" style="background-color: white;">
-      <mat-card-header>
-        <mat-card-title>Kitchen & dining products</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-      </mat-card-content>
-    </mat-card> 
-    <div  class="row">
-      <mat-card class="example-card" id="card10" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>You might also like</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card> 
-      <mat-card class="example-card" id="card11" style="background-color: white;">
-        <mat-card-header >
-          <mat-card-title>Keep shopping for</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card>  
-      <mat-card class="example-card" id="card12" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>Continue shopping for</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="example-card" id="card13" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>More items to consider</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card>
+  </mat-card>  
+
+  <mat-card class="example-card" id="card8" style="background-color: white;">
+    <mat-card-header>
+      <mat-card-title>Up to 60% off | Deck up your home this festive season | Amazon Brands & more</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container text-center my-3">
+        <div id="recipeCarousel" class="carousel slide"  data-bs-interval="false">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" *ngFor="let item of appdata; let i = index" [class.active]="i === currentIndex">
+              <div class="row">
+                <div class="col-md-2" *ngFor="let card of appdata.slice(i, i+6); let j = index">
+                  <div class="card" style="margin-bottom: 10px;">
+                    <div class="card-img">
+                      <img src="{{ card.filePath }}" class="img-fluid" height="100px" width="100px" alt="{{ card.name }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev" (click)="prevSlide()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next" (click)="nextSlide()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-2" *ngFor="let card of appdata.slice(currentIndex, currentIndex + 6); let j = index">
+          <div class="custom-card-container">
+            <h5 class="card-title" style="margin: 0; font-size: 15px">{{ card.name }}</h5>
+            <p class="card-text" style="margin: 0; font-size: 15px">Price: {{ card.price }}</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <mat-card class="example-card" id="card14" style="background-color: white;">
+  </mat-card> 
+  <mat-card class="example-card" id="card9" style="background-color: white;">
+    <mat-card-header>
+      <mat-card-title>Kitchen & dining products</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container text-center my-3">
+        <div id="recipeCarousel" class="carousel slide"  data-bs-interval="false">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" *ngFor="let item of appdata; let i = index" [class.active]="i === currentIndex">
+              <div class="row">
+                <div class="col-md-2" *ngFor="let card of appdata.slice(i, i+6); let j = index">
+                  <div class="card" style="margin-bottom: 10px;">
+                    <div class="card-img">
+                      <img src="{{ card.filePath }}" class="img-fluid" height="100px" width="100px" alt="{{ card.name }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev" (click)="prevSlide()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next" (click)="nextSlide()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-2" *ngFor="let card of appdata.slice(currentIndex, currentIndex + 6); let j = index">
+          <div class="custom-card-container">
+            <h5 class="card-title" style="margin: 0; font-size: 15px">{{ card.name }}</h5>
+            <p class="card-text" style="margin: 0; font-size: 15px">Price: {{ card.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card> 
+  <div  class="row">
+    <mat-card class="example-card" id="card10" style="background-color: white;">
       <mat-card-header>
-        <mat-card-title>Related to items you've viewed</mat-card-title>
+        <mat-card-title>You might also like</mat-card-title>
       </mat-card-header>
       <mat-card-content>
+        <div class="row" style="margin-top: 10px;">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+          <div class="customdiv">
+            <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+            <br>
+            <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+              <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+          </div>              
+          <b style="font-size: 12px;">₹{{ item.price }}</b>
+          </div>
+        </div>                    
+        </div>
       </mat-card-content>
     </mat-card> 
-    <mat-card class="example-card" id="card15" style="background-color: white;">
-      <mat-card-header>
-        <mat-card-title>Best Sellers in Computers & Accessories</mat-card-title>
+    <mat-card class="example-card" id="card11" style="background-color: white;">
+      <mat-card-header >
+        <mat-card-title>Keep shopping for</mat-card-title>
       </mat-card-header>
       <mat-card-content>
+        <div class="row" style="margin-top: 10px;">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+          <div class="customdiv">
+            <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+            <br>
+            <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+              <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+          </div>              
+          <b style="font-size: 12px;">₹{{ item.price }}</b>
+          </div>
+        </div>                        
+        </div>
+      </mat-card-content>
+    </mat-card>  
+    <mat-card class="example-card" id="card12" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>Continue shopping for</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row" style="margin-top: 10px;">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+              <div class="customdiv">
+                <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+                <br>
+                <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                  <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                  <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+              </div>              
+              <b style="font-size: 12px;">₹{{ item.price }}</b>
+              </div>
+            </div>                         
+        </div>
       </mat-card-content>
     </mat-card>
-    <div  class="row">
-      <mat-card class="example-card" id="card16" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>Explore more</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card> 
-      <mat-card class="example-card" id="card17" style="background-color: white;">
-        <mat-card-header >
-          <mat-card-title>One stop shop for all your wedding shopping</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card>  
-      <mat-card class="example-card" id="card18" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>Hack: Crimes online | Watch only on miniTV</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="example-card" id="card19" style="background-color: white;">
-        <mat-card-header>
-          <mat-card-title>Customers’ Most-Loved Fashion for you</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-        </mat-card-content>
-      </mat-card>
-    </div> 
-  </body>
+    <mat-card class="example-card" id="card13" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>More items to consider</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+          <div class="customdiv">
+            <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+            <br>
+            <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+              <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+          </div>              
+          <b style="font-size: 12px;">₹{{ item.price }}</b>
+          </div>
+        </div>          
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-card class="example-card" id="card14" style="background-color: white;">
+    <mat-card-header>
+      <mat-card-title>Related to items you've viewed</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container text-center my-3">
+        <div id="recipeCarousel" class="carousel slide"  data-bs-interval="false">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" *ngFor="let item of appdata; let i = index" [class.active]="i === currentIndex">
+              <div class="row">
+                <div class="col-md-2" *ngFor="let card of appdata.slice(i, i+6); let j = index">
+                  <div class="card" style="margin-bottom: 10px;">
+                    <div class="card-img">
+                      <img src="{{ card.filePath }}" class="img-fluid" height="100px" width="100px" alt="{{ card.name }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev" (click)="prevSlide()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next" (click)="nextSlide()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-2" *ngFor="let card of appdata.slice(currentIndex, currentIndex + 6); let j = index">
+          <div class="custom-card-container">
+            <h5 class="card-title" style="margin: 0; font-size: 15px">{{ card.name }}</h5>
+            <p class="card-text" style="margin: 0; font-size: 15px">Price: {{ card.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card> 
+  <mat-card class="example-card" id="card15" style="background-color: white;">
+    <mat-card-header>
+      <mat-card-title>Best Sellers in Computers & Accessories</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container text-center my-3">
+        <div id="recipeCarousel" class="carousel slide"  data-bs-interval="false">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" *ngFor="let item of appdata; let i = index" [class.active]="i === currentIndex">
+              <div class="row">
+                <div class="col-md-2" *ngFor="let card of appdata.slice(i, i+6); let j = index">
+                  <div class="card" style="margin-bottom: 10px;">
+                    <div class="card-img">
+                      <img src="{{ card.filePath }}" class="img-fluid" height="100px" width="100px" alt="{{ card.name }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev" (click)="prevSlide()">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next" (click)="nextSlide()">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </mat-card-content>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-2" *ngFor="let card of appdata.slice(currentIndex, currentIndex + 6); let j = index">
+          <div class="custom-card-container">
+            <h5 class="card-title" style="margin: 0; font-size: 15px">{{ card.name }}</h5>
+            <p class="card-text" style="margin: 0; font-size: 15px">Price: {{ card.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  <div  class="row">
+    <mat-card class="example-card" id="card16" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>Explore more</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row" style="margin-top: 10px;">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+            <div class="customdiv">
+              <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+              <br>
+              <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+              <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+            </div>              
+            <b style="font-size: 12px;">₹{{ item.price }}</b>
+            </div>
+          </div>                   
+        </div>
+      </mat-card-content>
+    </mat-card> 
+    <mat-card class="example-card" id="card17" style="background-color: white;">
+      <mat-card-header >
+        <mat-card-title>One stop shop for all your wedding shopping</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+            <div class="customdiv">
+              <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+              <br>
+              <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+              <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+            </div>              
+            <b style="font-size: 12px;">₹{{ item.price }}</b>
+            </div>
+          </div>                  
+        </div>
+      </mat-card-content>
+    </mat-card>  
+    <mat-card class="example-card" id="card18" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>Hack: Crimes online | Watch only on miniTV</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+            <div class="customdiv">
+              <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+              <br>
+              <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+              <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+            </div>              
+            <b style="font-size: 12px;">₹{{ item.price }}</b>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card" id="card19" style="background-color: white;">
+      <mat-card-header>
+        <mat-card-title>Customers’ Most-Loved Fashion for you</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row" >
+          <div *ngFor="let item of appdata1.slice(0, 4)" class="col-md-6 col-lg-6 col-sm-6">
+            <div class="customdiv">
+              <img [src]="item.filePath" height="55px" width="55px" alt="{{ item.name }} Image">
+              <br>
+              <span style="font-size: 10px;font-weight: bold;">{{ item.name }}</span><br>
+              <div style="display: flex; flex-direction: row; align-items: center;">
+                <span class="container" style="background-color: #CC0C39; font-weight: bold; color: white; margin-right: 10px;font-size: 8px;">33% off</span>
+                <h6 style="color: #CC0C39; font-size: 8px; font-weight: bold;">Republic Day Sale</h6>
+            </div>              
+            <b style="font-size: 12px;">₹{{ item.price }}</b>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+    </div>
+  </div>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new bootstrap.Carousel(document.getElementById('recipeCarousel'));
+  });
+</script>

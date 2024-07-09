@@ -1,0 +1,118 @@
+body
+{
+    background-color: white;
+
+}
+mat-card-title
+{
+    font-size: 15px;
+}
+mat-card
+{
+    background-color: transparent;
+    width: 300px;
+    height: 100px;
+    border: 1px #D5D9D9 solid;
+}
+mat-card-content
+{
+    color: gray;
+    font-size: 12px;
+}
+#car1
+{
+    margin-left: 115px;
+    margin-top: 20px;
+}
+#car2
+{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+#car3
+{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+#car4
+{
+    margin-left: 115px;
+    margin-top: 20px;
+}
+#car5
+{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+#car6
+{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+#car7
+{
+    margin-left: 100px;
+    margin-top: 20px;
+}
+#car8
+{
+    margin-left: 115px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+#car9
+{
+    margin-left: 25px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+#car10
+{
+    margin-left: 25px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+#car11
+{
+    margin-left: 115px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+#car12
+{
+    margin-left: 25px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+#car13
+{
+    margin-left: 25px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+#car14
+{
+    margin-left: 115px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+#car15
+{
+    margin-left: 25px;
+    margin-top: 20px;
+    height: 200px !important;
+}
+hr{
+    width: 1000px;
+    color: #000;
+    
+}
+.custom-mat-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0; 
+  }
+a{
+    font-size: 13px;
+    
+}

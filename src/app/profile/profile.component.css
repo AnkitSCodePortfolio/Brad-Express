@@ -1,0 +1,23 @@
+body
+{
+    background-color: white;
+
+}
+mat-card
+{
+    background-color:darkkhaki;
+    margin-left: 200px;
+    margin-top: 20px;
+    width: 800px;
+
+}
+.example-full-width
+{
+    width: 400px;
+    margin-left: 100px;
+    
+}
+.example{
+width: 130px;
+margin-left: 10px;
+}

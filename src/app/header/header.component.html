@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg" style="background-color: #0F1111; height: 60px; padding: 10px 15px;">
       <div class="container-fluid">
-        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#" style="margin-top: 12px;">
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" routerLink="" style="margin-top: 12px;">
           <img src="assets/Images/Icon.png" height="30" width="100px" alt="" loading="lazy"/>
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 15px;">
@@ -28,27 +28,27 @@
                   All
                 </button>
                 <div class="dropdown-menu" style="max-height: 350px; overflow-y: auto;">
-                  <a class="dropdown-item" href="#">All Categories</a>
-                  <a class="dropdown-item" href="#">Alexa Skills</a>
-                  <a class="dropdown-item" href="#">Amazon Devices</a>
-                  <a class="dropdown-item" href="#">Amazon Fashion</a>
-                  <a class="dropdown-item" href="#">Amazon Fresh</a>
-                  <a class="dropdown-item" href="#">Appliances</a>
-                  <a class="dropdown-item" href="#">Baby</a>
-                  <a class="dropdown-item" href="#">Beauty</a>
-                  <a class="dropdown-item" href="#">Books</a>
-                  <a class="dropdown-item" href="#">Car & Motorbike</a>
-                  <a class="dropdown-item" href="#">Clothing & Accessories</a>
-                  <a class="dropdown-item" href="#">Computer & Accessories</a>
-                  <a class="dropdown-item" href="#">Electronics</a>
-                  <a class="dropdown-item" href="#">Furniture</a>
-                  <a class="dropdown-item" href="#">Gift Card</a>
-                  <a class="dropdown-item" href="#">Watches</a>
-                  <a class="dropdown-item" href="#">Decor</a>
-                  <a class="dropdown-item" href="#">Garden</a>
+                  <a class="dropdown-item" routerLink="/product" onclick="selectOption('All Categories')">All Categories</a>
+                  <a class="dropdown-item" routerLink="/alexacat" onclick="selectOption('Alexa Skills')">Alexa Skills</a>
+                  <a class="dropdown-item" routerLink="/amazondevice" onclick="selectOption('Amazon Devices')">Amazon Devices</a>
+                  <a class="dropdown-item" routerLink="/amazonfashion" onclick="selectOption('Amazon Fashion')">Amazon Fashion</a>
+                  <a class="dropdown-item" routerLink="/amazonfresh" onclick="selectOption('Amazon Fresh')">Amazon Fresh</a>
+                  <a class="dropdown-item" routerLink="/appliances"onclick="selectOption('Appliances')">Appliances</a>
+                  <a class="dropdown-item" routerLink="/baby" onclick="selectOption('Baby')">Baby</a>
+                  <a class="dropdown-item" routerLink="/beauty" onclick="selectOption('Beauty')">Beauty</a>
+                  <a class="dropdown-item" routerLink="/books" onclick="selectOption('Books')">Books</a>
+                  <a class="dropdown-item" routerLink="/car" onclick="selectOption('Car & Motorbike')">Car & Motorbike</a>
+                  <a class="dropdown-item" routerLink="/clothing" onclick="selectOption('Clothing & Accessories')">Clothing & Accessories</a>
+                  <a class="dropdown-item" routerLink="/computer" onclick="selectOption('Computer & Accessories')">Computer & Accessories</a>
+                  <a class="dropdown-item" routerLink="/electronics" onclick="selectOption('Electronics')">Electronics</a>
+                  <a class="dropdown-item" routerLink="/furniture" onclick="selectOption('Furniture')">Furniture</a>
+                  <a class="dropdown-item" routerLink="/gift" onclick="selectOption('Gift Card')">Gift Card</a>
+                  <a class="dropdown-item" routerLink="/watch"onclick="selectOption('Watches')">Watches</a>
+                  <a class="dropdown-item" routerLink="/decor" onclick="selectOption('Decor')">Decor</a>
+                  <a class="dropdown-item" routerLink="/garden" onclick="selectOption('Garden')">Garden</a>
                 </div>
               </div>
-              <input type="search" class="form-control" placeholder="Search" aria-label="Search" style="width: 330px; height: 100%;">
+              <input id="searchInput" type="search" class="form-control" placeholder="Search" aria-label="Search" style="width: 330px; height: 100%;">
               <div class="input-group-append">
                 <button class="btn btn-warning" type="submit" style="height: 40px;">
                   <i class="bi bi-search"></i>
@@ -58,25 +58,25 @@
                     <img src="assets/Images/Icon2.png" height="15px" width="20px" alt="" loading="lazy" /><b style="font-size: 15px; margin-left: 2px;">EN</b>
                   </span>
                   <div class="dropdown-menu" style="margin-top: 0;">
-                    <a class="dropdown-item" href="#">Hindi</a>
-                    <a class="dropdown-item" href="#">English</a>
-                    <a class="dropdown-item" href="#">German</a>
+                    <a class="dropdown-item" >Hindi</a>
+                    <a class="dropdown-item" routerLink="/admin-dash">English</a>
+                    <a class="dropdown-item" routerLink="/account">German</a>
                   </div>
                 </div>
                 <div class="dropdown" style="margin-left: 15px;">
                   <span class="btn btn-secondary dropdown-toggle bg-transparent" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none;font-size: 13px; color: white;">Hello, Ankit <br>  <b style="font-size: 13px; margin-left: 2px;">Account &amp; Lists</b></span>
                   <div class="dropdown-menu" style="margin-top: 0;">
-                    <a class="dropdown-item" href="#">Hindi</a>
-                    <a class="dropdown-item" href="#">English</a>
-                    <a class="dropdown-item" href="#">German</a>
+                    <a class="dropdown-item" routerLink="/account">Account</a>
+                    <a class="dropdown-item" routerLink="/admin">Settings</a>
+                    <a class="dropdown-item" routerLink="/profile">Not You? Log out</a>
                   </div>
                 </div>
                 <div class="dropdown" style="margin-left: 30px; margin-top: 5px;">
-                  <span class="bg-transparentn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none;font-size: 13px; color: white;">Returns <br>  <b style="font-size: 13px; margin-left: 2px;">&amp; Orders</b></span>
+                  <span class="bg-transparentn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none;font-size: 13px; color: white;">Returns <br>  <b style="font-size: 13px; margin-left: 2px;" routerLink="/return">&amp; Orders</b></span>
                  
                 </div>
                 <div id="nav-cart-count-container">
-                  <span style="margin-left: 90px; font-size: 30px;color: white;"><i class="bi bi-cart2"></i></span>
+                  <span style="margin-left: 90px; font-size: 30px;color: white;" routerLink="/cart"><i class="bi bi-cart2"></i></span>
                 </div>              
               </div>
             </div>
@@ -85,5 +85,8 @@
       </div>
     </nav>
   </header>
-  
-  
+  <script>
+    function selectOption(selectedOption) {
+      document.getElementById('searchInput').value = selectedOption;
+    }
+  </script>
